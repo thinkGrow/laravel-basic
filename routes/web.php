@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\GuitarsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,9 @@ use App\Http\Controllers\HomeController;
 Route::get('/',[HomeController::class, 'index'])->name('home.index');
 Route::get('/about',[HomeController::class, 'about'])->name('home.about');
 Route::get('/contact',[HomeController::class, 'contact'])->name('home.contact');
+
+// this means all of the routes will be based on /guitars/cre,edit etc. 
+Route::resource('guitars', GuitarsController::class);
 
 
 // Route::get('/', function () {
