@@ -59,3 +59,8 @@ Route::get('/store/{category?}/{item?}', function($category = null, $item = null
     return 'you are viewing all instruments';
     
 });
+
+Route::get('/dbconn', function()
+{
+    return view('dbconn');
+});
