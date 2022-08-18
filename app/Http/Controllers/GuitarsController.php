@@ -57,9 +57,20 @@ class GuitarsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($guitar)
     {
         // GET
+        $guitars = self::getData();
+        
+        $index = array_search($guitar, array_column($guitars, 'id'));
+
+        if($index === false){
+            abort(404);
+        }
+
+        return view('guitars.show', [
+            'guitar' => $guitars[$index]
+        ]);
     }
 
     /**
@@ -71,6 +82,7 @@ class GuitarsController extends Controller
     public function edit($id)
     {
         // GET
+
     }
 
     /**
